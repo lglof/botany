@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-    <Sidebar />
-    <Workbench />
+    <Workbench id="workbench" />
+    <!-- <Sidebar id="sidebar" /> -->
   </div>
 </template>
 
 <script>
-import Sidebar from "./components/Sidebar";
+// import Sidebar from "./components/Sidebar";
 import Workbench from "./components/Workbench";
 
 export default {
   name: "App",
   components: {
-    Sidebar,
+    // Sidebar,
     Workbench
   }
 };
@@ -25,6 +25,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 0px;
+  height: 100%;
+}
+#sidebar {
+  height: 100%;
+}
+#workspace {
+  height: 100%;
 }
 </style>

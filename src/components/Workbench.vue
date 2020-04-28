@@ -2,7 +2,7 @@
   <div class="wrapper">
     <Flower species="windflower" colour="white" />
     <Flower species="cosmos" colour="yellow" />
-    <button v-on:click="newFlower()">New Flower!</button>
+    <!-- <button v-on:click="newFlower()">New Flower!</button> -->
     <div ref="container" />
   </div>
 </template>
@@ -20,7 +20,7 @@ export default {
   methods: {
     newFlower() {
       var FlowerInstance = new FlowerClass({
-        propsData: { species: "cosmos", colour: "pink" }
+        propsData: { species: "cosmos", colour: "white" }
       });
       FlowerInstance.$mount();
       this.$refs.container.appendChild(FlowerInstance.$el);
@@ -28,3 +28,11 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.wrapper {
+  outline: 3px black solid;
+  height: 100%;
+  width: 100%;
+}
+</style>

@@ -1,12 +1,17 @@
 <template>
-  <div>
+  <vue-draggable-resizable :w="100" :h="100" class="drag-drop">
     <img :src="imageSource()" />
-  </div>
+  </vue-draggable-resizable>
 </template>
 
 <script>
+import VueDraggableResizable from "vue-draggable-resizable";
+
 export default {
   name: "Flower",
+  components: {
+    VueDraggableResizable
+  },
   props: {
     species: {
       type: String,
@@ -24,3 +29,4 @@ export default {
   }
 };
 </script>
+
