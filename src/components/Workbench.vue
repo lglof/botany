@@ -1,29 +1,33 @@
 <template>
-  <div class="wrapper">
-    <Flower species="windflower" colour="white" />
-    <Flower species="cosmos" colour="yellow" />
-    <!-- <button v-on:click="newFlower()">New Flower!</button> -->
-    <div ref="container" />
+  <div class="wrapper" ref="wrapper">
+    <Sidebar v-on:itemclick="newFlower($event)" />
   </div>
 </template>
 
 <script>
 import Flower from "./Flower";
+import Sidebar from "./Sidebar";
 import Vue from "vue";
 var FlowerClass = Vue.extend(Flower);
 
 export default {
   name: "Workbench",
   components: {
-    Flower
+    // eslint-disable-next-line vue/no-unused-components
+    Flower,
+    Sidebar
   },
   methods: {
-    newFlower() {
+    newFlower(eventData) {
+      console.log(eventData);
       var FlowerInstance = new FlowerClass({
-        propsData: { species: "cosmos", colour: "white" }
+        propsData: {
+          species: eventData.species,
+          colour: eventData.colour
+        }
       });
       FlowerInstance.$mount();
-      this.$refs.container.appendChild(FlowerInstance.$el);
+      this.$refs.wrapper.appendChild(FlowerInstance.$el);
     }
   }
 };
@@ -31,6 +35,7 @@ export default {
 
 <style scoped>
 .wrapper {
+  position: fixed;
   outline: 3px black solid;
   height: 100%;
   width: 100%;
